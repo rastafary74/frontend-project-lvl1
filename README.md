@@ -3,4 +3,4 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
 
-[![Eslint](https://github.com/rastafary74/frontend-project-lvl1/workflows/tests/badge.svg)](https://github.com/rastafary74/frontend-project-lvl1/actions)
+[![Eslint](https://github.com/rastafary74/frontend-project-lvl1/workflows/eslint/badge.svg)](https://github.com/rastafary74/frontend-project-lvl1/actions)
