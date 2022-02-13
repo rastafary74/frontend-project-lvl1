@@ -10,6 +10,6 @@ rules: {
   "import/extensions": [ 'error', 'ignorePackages', {
     js: "off",
   }],
-  'no-console': 'off',
-  "linebreak-style": ["error", "windows"]
+  'no-console': "off",
+  "linebreak-style": "off"
 }

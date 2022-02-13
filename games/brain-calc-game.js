@@ -7,6 +7,7 @@ import {
   sendErrorMessage,
   showCongratulations,
   showCorrect,
+  showAnswer,
 } from '../src/games-lib.js';
 
 const isCorrectAnswer = (answer, correctAnswer) => correctAnswer === Number(answer);
@@ -32,7 +33,7 @@ const sendQuestion = () => {
     operationText = `${firstNum} - ${secondNum}`;
   }
   const answer = readlineSync.question(`Question: ${operationText}: `);
-  console.log(`Your answer: ${answer}`);
+  showAnswer(answer);
   return [answer, correctAnswer];
 };
 

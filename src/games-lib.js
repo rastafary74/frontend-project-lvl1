@@ -13,3 +13,6 @@ export const showCongratulations = (userName) => {
 export const showCorrect = () => {
   console.log('Correct!');
 };
+export const showAnswer = (answer) => {
+  console.log(`Your answer: ${answer}`);
+};

@@ -5,6 +5,7 @@ import {
   sendErrorMessage,
   showCongratulations,
   showCorrect,
+  showAnswer,
 } from '../src/games-lib.js';
 
 const isCorrectAnswer = (answer, randomInt) => {
@@ -27,7 +28,7 @@ const isCorrectAnswer = (answer, randomInt) => {
 const sendQuestion = () => {
   const randomInt = getRandomInRange(1, 100);
   const answer = readlineSync.question(`Question: ${randomInt}: `);
-  console.log(`Your answer: ${answer}`);
+  showAnswer(answer);
   return [answer, randomInt];
 };
 
