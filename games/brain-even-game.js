@@ -1,17 +1,15 @@
 import readlineSync from 'readline-sync';
-
-const getRandomInRange = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
-const isEven = (num) => num % 2 === 0;
-
-const sendErrorMessage = (answer, userName, randomInt) => {
-  const correctAnswer = isEven(randomInt) === true ? 'yes' : 'no';
-  console.log(`${answer} is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-  console.log(`Let's try again, ${userName}!`);
-};
+import {
+  getRandomInRange,
+  isEven,
+  sendErrorMessage,
+  showCongratulations,
+  showCorrect,
+} from '../src/games-lib.js';
 
 const isCorrectAnswer = (answer, randomInt) => {
   const correctAnswer = ['yes', 'no'];
-  if (correctAnswer.includes(answer) === false || answer === undefined) {
+  if (correctAnswer.includes(answer) === false || answer.length === 0) {
     return false;
   }
   const isEvenNum = isEven(randomInt);
@@ -40,13 +38,14 @@ const brainEvenGame = (userName, countCorrectAnswer = 0) => {
   const [answer, randomInt] = sendQuestion();
   const checkAnswer = isCorrectAnswer(answer, randomInt);
   if (checkAnswer === true) {
-    console.log('Correct!');
+    showCorrect();
   } else {
-    sendErrorMessage(answer, userName, randomInt);
+    const correctAnswer = isEven(randomInt) === true ? 'yes' : 'no';
+    sendErrorMessage(answer, userName, correctAnswer);
     return false;
   }
   if (countCorrectAnswer === 2) {
-    console.log(`Congratulations, ${userName}!`);
+    showCongratulations(userName);
     return true;
   }
 
