@@ -11,4 +11,5 @@ rules: {
     js: "off",
   }],
   'no-console': 'off',
+  "linebreak-style": ["error", "windows"]
 }
