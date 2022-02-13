@@ -6,3 +6,6 @@ brain-games: # start game
 
 publish: # publish
 		npm publish --dry-run
+
+lint: #linting
+		npx eslint .

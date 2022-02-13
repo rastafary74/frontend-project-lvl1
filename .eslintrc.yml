@@ -9,5 +9,6 @@ parserOptions:
 rules: {
   "import/extensions": [ 'error', 'ignorePackages', {
     js: "off",
-  } ],
+  }],
+  'no-console': 'off',
 }
