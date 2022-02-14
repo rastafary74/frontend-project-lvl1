@@ -1,10 +1,10 @@
-import readlineSync from 'readline-sync';
 import {
   getRandomInRange,
   isEven,
   gameSuccess,
   showAnswer,
   showStartMessage,
+  showQuestion,
 } from '../src/games-lib.js';
 
 const isCorrectAnswer = (answer, randomInt) => {
@@ -20,7 +20,7 @@ const isCorrectAnswer = (answer, randomInt) => {
 
 const sendQuestion = () => {
   const randomInt = getRandomInRange(1, 100);
-  const answer = readlineSync.question(`Question: ${randomInt}: `);
+  const answer = showQuestion(randomInt);
   showAnswer(answer);
   return [answer, randomInt];
 };

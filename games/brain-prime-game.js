@@ -1,9 +1,9 @@
-import readlineSync from 'readline-sync';
 import {
   getRandomInRange,
   showAnswer,
   gameSuccess,
   showStartMessage,
+  showQuestion,
 } from '../src/games-lib.js';
 
 const isPrimeNumber = (number) => {
@@ -27,7 +27,7 @@ const isCorrectAnswer = (answer, numberToShow) => {
 
 const sendQuestion = () => {
   const numberToShow = getRandomInRange(2, 60);
-  const answer = readlineSync.question(`Question: ${numberToShow}: `);
+  const answer = showQuestion(numberToShow);
   showAnswer(answer);
   return [answer, numberToShow];
 };

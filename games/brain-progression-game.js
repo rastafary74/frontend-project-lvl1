@@ -1,9 +1,9 @@
-import readlineSync from 'readline-sync';
 import {
   getRandomInRange,
   showAnswer,
   gameSuccess,
   showStartMessage,
+  showQuestion,
 } from '../src/games-lib.js';
 
 const isCorrectAnswer = (answer, correctAnswer) => correctAnswer === Number(answer);
@@ -21,7 +21,7 @@ const sendQuestion = () => {
   const correctAnswer = progressionArr[positionQuestion];
   progressionArr[positionQuestion] = '..';
   const progressionString = progressionArr.join(' ');
-  const answer = readlineSync.question(`Question: ${progressionString}: `);
+  const answer = showQuestion(progressionString);
   showAnswer(answer);
   return [answer, correctAnswer];
 };

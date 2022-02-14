@@ -1,4 +1,3 @@
-import readlineSync from 'readline-sync';
 import {
   getRandomInRange,
   getSum,
@@ -7,6 +6,7 @@ import {
   showAnswer,
   gameSuccess,
   showStartMessage,
+  showQuestion,
 } from '../src/games-lib.js';
 
 const isCorrectAnswer = (answer, correctAnswer) => correctAnswer === Number(answer);
@@ -31,7 +31,7 @@ const sendQuestion = () => {
     correctAnswer = getSubtraction(firstNum, secondNum);
     operationText = `${firstNum} - ${secondNum}`;
   }
-  const answer = readlineSync.question(`Question: ${operationText}: `);
+  const answer = showQuestion(operationText);
   showAnswer(answer);
   return [answer, correctAnswer];
 };
