@@ -31,7 +31,7 @@ const brainEvenGame = (userName, countCorrectAnswer = 0) => {
   const checkAnswer = isCorrectAnswer(answer, randomInt);
   const correctAnswer = isEven(randomInt) === true ? 'yes' : 'no';
   const resultGame = gameSuccess(checkAnswer, answer, userName, correctAnswer, countCorrectAnswer);
-  if (resultGame === 'nextGame') {
+  if (resultGame === true) {
     brainEvenGame(userName, countCorrectAnswer + 1);
   }
   return true;

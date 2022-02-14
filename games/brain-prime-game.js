@@ -38,7 +38,7 @@ const brainPrimeGame = (userName, countCorrectAnswer = 0) => {
   const checkAnswer = isCorrectAnswer(answer, numberToShow);
   const correctAnswer = checkAnswer ? 'yes' : 'no';
   const resultGame = gameSuccess(checkAnswer, answer, userName, correctAnswer, countCorrectAnswer);
-  if (resultGame === 'nextGame') {
+  if (resultGame === true) {
     brainPrimeGame(userName, countCorrectAnswer + 1);
   }
   return true;

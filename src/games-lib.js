@@ -27,12 +27,12 @@ export const showAnswer = (answer) => {
 export const gameSuccess = (checkAnswer, answer, userName, correctAnswer, countCorrectAnswer) => {
   if (checkAnswer === false) {
     sendErrorMessage(answer, userName, correctAnswer);
-    return 'lose';
+    return false;
   }
   showCorrect();
   if (countCorrectAnswer === 2) {
     showCongratulations(userName);
-    return 'win';
+    return false;
   }
-  return 'nextGame';
+  return true;
 };

@@ -29,7 +29,7 @@ const brainGCDGame = (userName, countCorrectAnswer = 0) => {
   const [answer, correctAnswer] = sendQuestion();
   const checkAnswer = isCorrectAnswer(answer, correctAnswer);
   const resultGame = gameSuccess(checkAnswer, answer, userName, correctAnswer, countCorrectAnswer);
-  if (resultGame === 'nextGame') {
+  if (resultGame === true) {
     brainGCDGame(userName, countCorrectAnswer + 1);
   }
   return true;
