@@ -17,7 +17,7 @@ const sendQuestion = () => {
     const symbolOnPush = progressionArr[i] + stepProgression;
     progressionArr.push(symbolOnPush);
   }
-  const positionQuestion = getRandomInRange(0, progressionLength);
+  const positionQuestion = getRandomInRange(0, progressionLength - 1);
   const correctAnswer = progressionArr[positionQuestion];
   progressionArr[positionQuestion] = '..';
   const progressionString = progressionArr.join(' ');
