@@ -33,9 +33,7 @@ const sendQuestion = () => {
 };
 
 const brainPrimeGame = (userName, countCorrectAnswer = 0) => {
-  if (countCorrectAnswer === 0) {
-    showStartMessage('Answer "yes" if given number is prime. Otherwise answer "no".');
-  }
+  showStartMessage('Answer "yes" if given number is prime. Otherwise answer "no".', countCorrectAnswer);
   const [answer, numberToShow] = sendQuestion();
   const checkAnswer = isCorrectAnswer(answer, numberToShow);
   const correctAnswer = checkAnswer ? 'yes' : 'no';

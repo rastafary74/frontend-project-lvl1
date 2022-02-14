@@ -16,8 +16,10 @@ export const showCongratulations = (userName) => {
 export const showCorrect = () => {
   console.log('Correct!');
 };
-export const showStartMessage = (message) => {
-  console.log(message);
+export const showStartMessage = (message, countCorrectAnswer) => {
+  if (countCorrectAnswer === 0) {
+    console.log(message);
+  }
 };
 export const showAnswer = (answer) => {
   console.log(`Your answer: ${answer}`);

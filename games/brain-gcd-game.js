@@ -25,9 +25,7 @@ const sendQuestion = () => {
 };
 
 const brainGCDGame = (userName, countCorrectAnswer = 0) => {
-  if (countCorrectAnswer === 0) {
-    showStartMessage('Find the greatest common divisor of given numbers.');
-  }
+  showStartMessage('Find the greatest common divisor of given numbers.', countCorrectAnswer);
   const [answer, correctAnswer] = sendQuestion();
   const checkAnswer = isCorrectAnswer(answer, correctAnswer);
   const resultGame = gameSuccess(checkAnswer, answer, userName, correctAnswer, countCorrectAnswer);

@@ -27,9 +27,7 @@ const sendQuestion = () => {
 };
 
 const brainProgressionGame = (userName, countCorrectAnswer = 0) => {
-  if (countCorrectAnswer === 0) {
-    showStartMessage('What number is missing in the progression?');
-  }
+  showStartMessage('What number is missing in the progression?', countCorrectAnswer);
   const [answer, correctAnswer] = sendQuestion();
   const checkAnswer = isCorrectAnswer(answer, correctAnswer);
   const resultGame = gameSuccess(checkAnswer, answer, userName, correctAnswer, countCorrectAnswer);

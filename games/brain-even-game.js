@@ -26,9 +26,7 @@ const sendQuestion = () => {
 };
 
 const brainEvenGame = (userName, countCorrectAnswer = 0) => {
-  if (countCorrectAnswer === 0) {
-    showStartMessage('Answer "yes" if the number is even, otherwise answer "no".');
-  }
+  showStartMessage('Answer "yes" if the number is even, otherwise answer "no".', countCorrectAnswer);
   const [answer, randomInt] = sendQuestion();
   const checkAnswer = isCorrectAnswer(answer, randomInt);
   const correctAnswer = isEven(randomInt) === true ? 'yes' : 'no';

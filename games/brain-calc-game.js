@@ -37,9 +37,7 @@ const sendQuestion = () => {
 };
 
 const brainCalcGame = (userName, countCorrectAnswer = 0) => {
-  if (countCorrectAnswer === 0) {
-    showStartMessage('What is the result of the expression?');
-  }
+  showStartMessage('What is the result of the expression?', countCorrectAnswer);
   const [answer, correctAnswer] = sendQuestion();
   const checkAnswer = isCorrectAnswer(answer, correctAnswer);
   const resultGame = gameSuccess(checkAnswer, answer, userName, correctAnswer, countCorrectAnswer);
