@@ -1,7 +1,8 @@
 import readlineSync from 'readline-sync';
 import {
   getRandomInRange,
-  showAnswer, gameSuccess,
+  showAnswer,
+  gameSuccess,
 } from '../src/games-lib.js';
 
 const isCorrectAnswer = (answer, correctAnswer) => correctAnswer === Number(answer);
