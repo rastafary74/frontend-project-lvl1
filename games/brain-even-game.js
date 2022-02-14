@@ -2,9 +2,7 @@ import readlineSync from 'readline-sync';
 import {
   getRandomInRange,
   isEven,
-  sendErrorMessage,
-  showCongratulations,
-  showCorrect,
+  gameSuccess,
   showAnswer,
 } from '../src/games-lib.js';
 
@@ -38,19 +36,11 @@ const brainEvenGame = (userName, countCorrectAnswer = 0) => {
   }
   const [answer, randomInt] = sendQuestion();
   const checkAnswer = isCorrectAnswer(answer, randomInt);
-  if (checkAnswer === true) {
-    showCorrect();
-  } else {
-    const correctAnswer = isEven(randomInt) === true ? 'yes' : 'no';
-    sendErrorMessage(answer, userName, correctAnswer);
-    return false;
+  const correctAnswer = isEven(randomInt) === true ? 'yes' : 'no';
+  const resultGame = gameSuccess(checkAnswer, answer, userName, correctAnswer, countCorrectAnswer);
+  if (resultGame === 'nextGame') {
+    brainEvenGame(userName, countCorrectAnswer + 1);
   }
-  if (countCorrectAnswer === 2) {
-    showCongratulations(userName);
-    return true;
-  }
-
-  brainEvenGame(userName, countCorrectAnswer + 1);
   return true;
 };
 

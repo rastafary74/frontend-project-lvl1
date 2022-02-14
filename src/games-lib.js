@@ -16,3 +16,15 @@ export const showCorrect = () => {
 export const showAnswer = (answer) => {
   console.log(`Your answer: ${answer}`);
 };
+export const gameSuccess = (checkAnswer, answer, userName, correctAnswer, countCorrectAnswer) => {
+  if (checkAnswer === false) {
+    sendErrorMessage(answer, userName, correctAnswer);
+    return 'lose';
+  }
+  showCorrect();
+  if (countCorrectAnswer === 2) {
+    showCongratulations(userName);
+    return 'win';
+  }
+  return 'nextGame';
+};

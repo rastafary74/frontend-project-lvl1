@@ -4,10 +4,8 @@ import {
   getSum,
   getMultiplying,
   getSubtraction,
-  sendErrorMessage,
-  showCongratulations,
-  showCorrect,
   showAnswer,
+  gameSuccess,
 } from '../src/games-lib.js';
 
 const isCorrectAnswer = (answer, correctAnswer) => correctAnswer === Number(answer);
@@ -43,17 +41,10 @@ const brainCalcGame = (userName, countCorrectAnswer = 0) => {
   }
   const [answer, correctAnswer] = sendQuestion();
   const checkAnswer = isCorrectAnswer(answer, correctAnswer);
-  if (checkAnswer === true) {
-    showCorrect();
-  } else {
-    sendErrorMessage(answer, userName, correctAnswer);
-    return false;
+  const resultGame = gameSuccess(checkAnswer, answer, userName, correctAnswer, countCorrectAnswer);
+  if (resultGame === 'nextGame') {
+    brainCalcGame(userName, countCorrectAnswer + 1);
   }
-  if (countCorrectAnswer === 2) {
-    showCongratulations(userName);
-    return true;
-  }
-  brainCalcGame(userName, countCorrectAnswer + 1);
   return true;
 };
 

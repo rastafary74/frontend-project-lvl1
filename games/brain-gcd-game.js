@@ -1,10 +1,7 @@
 import readlineSync from 'readline-sync';
 import {
   getRandomInRange,
-  sendErrorMessage,
-  showCongratulations,
-  showCorrect,
-  showAnswer,
+  showAnswer, gameSuccess,
 } from '../src/games-lib.js';
 
 const isCorrectAnswer = (answer, correctAnswer) => correctAnswer === Number(answer);
@@ -32,17 +29,10 @@ const brainGCDGame = (userName, countCorrectAnswer = 0) => {
   }
   const [answer, correctAnswer] = sendQuestion();
   const checkAnswer = isCorrectAnswer(answer, correctAnswer);
-  if (checkAnswer === true) {
-    showCorrect();
-  } else {
-    sendErrorMessage(answer, userName, correctAnswer);
-    return false;
+  const resultGame = gameSuccess(checkAnswer, answer, userName, correctAnswer, countCorrectAnswer);
+  if (resultGame === 'nextGame') {
+    brainGCDGame(userName, countCorrectAnswer + 1);
   }
-  if (countCorrectAnswer === 2) {
-    showCongratulations(userName);
-    return true;
-  }
-  brainGCDGame(userName, countCorrectAnswer + 1);
   return true;
 };
 
