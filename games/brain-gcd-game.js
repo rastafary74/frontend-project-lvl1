@@ -3,6 +3,7 @@ import {
   getRandomInRange,
   showAnswer,
   gameSuccess,
+  showStartMessage,
 } from '../src/games-lib.js';
 
 const isCorrectAnswer = (answer, correctAnswer) => correctAnswer === Number(answer);
@@ -26,7 +27,7 @@ const sendQuestion = () => {
 
 const brainGCDGame = (userName, countCorrectAnswer = 0) => {
   if (countCorrectAnswer === 0) {
-    console.log('Find the greatest common divisor of given numbers.');
+    showStartMessage('Find the greatest common divisor of given numbers.');
   }
   const [answer, correctAnswer] = sendQuestion();
   const checkAnswer = isCorrectAnswer(answer, correctAnswer);

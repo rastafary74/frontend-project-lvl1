@@ -6,6 +6,7 @@ import {
   getSubtraction,
   showAnswer,
   gameSuccess,
+  showStartMessage,
 } from '../src/games-lib.js';
 
 const isCorrectAnswer = (answer, correctAnswer) => correctAnswer === Number(answer);
@@ -37,7 +38,7 @@ const sendQuestion = () => {
 
 const brainCalcGame = (userName, countCorrectAnswer = 0) => {
   if (countCorrectAnswer === 0) {
-    console.log('What is the result of the expression?');
+    showStartMessage('What is the result of the expression?');
   }
   const [answer, correctAnswer] = sendQuestion();
   const checkAnswer = isCorrectAnswer(answer, correctAnswer);
