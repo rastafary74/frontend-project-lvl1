@@ -7,11 +7,15 @@ import {
 } from '../src/games-lib.js';
 
 const isPrimeNumber = (number) => {
-  const primeNumbers = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53];
-  if (primeNumbers.includes(number) === true) {
-    return true;
+  if (number < 2) {
+    return false;
   }
-  return false;
+  for (let i = 2; i <= Math.sqrt(number); i += 1) {
+    if (number % i === 0) {
+      return false;
+    }
+  }
+  return true;
 };
 
 const isCorrectAnswer = (answer, numberToShow) => {
