@@ -1,14 +1,7 @@
-import {
-  getRandomInRange,
-  showAnswer,
-  gameSuccess,
-  showStartMessage,
-  showQuestion,
-} from '../src/games-lib.js';
+import getRandomInRange from '../src/games-lib.js';
+import engine from '../src/index.js';
 
-const isCorrectAnswer = (answer, correctAnswer) => correctAnswer === Number(answer);
-
-const sendQuestion = () => {
+const getQuestion = () => {
   const firstNum = getRandomInRange(1, 50);
   const secondNum = getRandomInRange(1, 50);
   const counter = firstNum > secondNum ? firstNum : secondNum;
@@ -19,18 +12,18 @@ const sendQuestion = () => {
       break;
     }
   }
-  const answer = showQuestion(`${firstNum} ${secondNum}`);
-  showAnswer(answer);
-  return [answer, correctAnswer];
+  const question = `${firstNum} ${secondNum}`;
+  return [question, String(correctAnswer)];
 };
 
-const brainGCDGame = (userName, countCorrectAnswer = 0) => {
-  showStartMessage('Find the greatest common divisor of given numbers.', countCorrectAnswer);
-  const [answer, correctAnswer] = sendQuestion();
-  const checkAnswer = isCorrectAnswer(answer, correctAnswer);
-  const resultGame = gameSuccess(checkAnswer, answer, userName, correctAnswer, countCorrectAnswer);
-  if (resultGame === true) {
-    brainGCDGame(userName, countCorrectAnswer + 1);
+const brainGCDGame = (userName) => {
+  const startMessage = 'Find the greatest common divisor of given numbers.';
+  for (let round = 0; round < 3; round += 1) {
+    const [question, correctAnswer] = getQuestion();
+    const success = engine(startMessage, round, question, correctAnswer, userName);
+    if (success === false) {
+      break;
+    }
   }
   return true;
 };

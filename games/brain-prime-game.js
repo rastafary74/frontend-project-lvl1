@@ -1,10 +1,5 @@
-import {
-  getRandomInRange,
-  showAnswer,
-  gameSuccess,
-  showStartMessage,
-  showQuestion,
-} from '../src/games-lib.js';
+import getRandomInRange from '../src/games-lib.js';
+import engine from '../src/index.js';
 
 const isPrimeNumber = (number) => {
   if (number < 2) {
@@ -18,32 +13,20 @@ const isPrimeNumber = (number) => {
   return true;
 };
 
-const isCorrectAnswer = (answer, numberToShow) => {
-  const isPrime = isPrimeNumber(numberToShow);
-  if (isPrime === true && answer === 'yes') {
-    return true;
-  }
-  if (isPrime === false && answer === 'no') {
-    return true;
-  }
-  return false;
+const getQuestion = () => {
+  const question = getRandomInRange(2, 60);
+  const correctAnswer = isPrimeNumber(question) ? 'yes' : 'no';
+  return [question, correctAnswer];
 };
 
-const sendQuestion = () => {
-  const numberToShow = getRandomInRange(2, 60);
-  const answer = showQuestion(numberToShow);
-  showAnswer(answer);
-  return [answer, numberToShow];
-};
-
-const brainPrimeGame = (userName, countCorrectAnswer = 0) => {
-  showStartMessage('Answer "yes" if given number is prime. Otherwise answer "no".', countCorrectAnswer);
-  const [answer, numberToShow] = sendQuestion();
-  const checkAnswer = isCorrectAnswer(answer, numberToShow);
-  const correctAnswer = checkAnswer ? 'yes' : 'no';
-  const resultGame = gameSuccess(checkAnswer, answer, userName, correctAnswer, countCorrectAnswer);
-  if (resultGame === true) {
-    brainPrimeGame(userName, countCorrectAnswer + 1);
+const brainPrimeGame = (userName) => {
+  const startMessage = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+  for (let round = 0; round < 3; round += 1) {
+    const [question, correctAnswer] = getQuestion();
+    const success = engine(startMessage, round, question, correctAnswer, userName);
+    if (success === false) {
+      break;
+    }
   }
   return true;
 };
