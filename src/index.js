@@ -4,7 +4,7 @@ const showMessage = (message) => {
   console.log(message);
 };
 
-const engine = (startMessage, round, question, correctAnswer, userName) => {
+const generateRound = (startMessage, round, question, correctAnswer, userName) => {
   if (round === 0) {
     showMessage(startMessage);
   }
@@ -18,6 +18,17 @@ const engine = (startMessage, round, question, correctAnswer, userName) => {
   console.log('Correct!');
   if (round === 2) {
     showMessage(`Congratulations, ${userName}!`);
+  }
+  return true;
+};
+
+const engine = (startMessage, userName, getQuestion) => {
+  for (let round = 0; round < 3; round += 1) {
+    const [question, correctAnswer] = getQuestion();
+    const success = generateRound(startMessage, round, question, correctAnswer, userName);
+    if (success === false) {
+      break;
+    }
   }
   return true;
 };

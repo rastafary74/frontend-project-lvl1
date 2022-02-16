@@ -18,14 +18,7 @@ const getQuestion = () => {
 
 const brainGCDGame = (userName) => {
   const startMessage = 'Find the greatest common divisor of given numbers.';
-  for (let round = 0; round < 3; round += 1) {
-    const [question, correctAnswer] = getQuestion();
-    const success = engine(startMessage, round, question, correctAnswer, userName);
-    if (success === false) {
-      break;
-    }
-  }
-  return true;
+  return engine(startMessage, userName, getQuestion);
 };
 
 export default brainGCDGame;

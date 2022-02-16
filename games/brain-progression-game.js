@@ -19,14 +19,7 @@ const getQuestion = () => {
 
 const brainProgressionGame = (userName) => {
   const startMessage = 'What number is missing in the progression?';
-  for (let round = 0; round < 3; round += 1) {
-    const [question, correctAnswer] = getQuestion();
-    const success = engine(startMessage, round, question, correctAnswer, userName);
-    if (success === false) {
-      break;
-    }
-  }
-  return true;
+  return engine(startMessage, userName, getQuestion);
 };
 
 export default brainProgressionGame;
