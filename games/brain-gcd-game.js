@@ -1,7 +1,7 @@
 import getRandomInRange from '../src/games-lib.js';
 import engine from '../src/index.js';
 
-const getQuestion = () => {
+const generateRound = () => {
   const firstNum = getRandomInRange(1, 50);
   const secondNum = getRandomInRange(1, 50);
   const counter = firstNum > secondNum ? firstNum : secondNum;
@@ -18,7 +18,7 @@ const getQuestion = () => {
 
 const brainGCDGame = (userName) => {
   const startMessage = 'Find the greatest common divisor of given numbers.';
-  return engine(startMessage, userName, getQuestion);
+  return engine(startMessage, userName, generateRound);
 };
 
 export default brainGCDGame;

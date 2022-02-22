@@ -1,33 +1,40 @@
-# Игры разума
+### Hexlet tests and linter status:
+[![Actions Status](https://github.com/rastafary74/frontend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/rastafary74/frontend-project-lvl1/actions)
 
-Набор из 5 консольных мини игр.
+[![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
 
-### Копирование проекта
+[![Eslint](https://github.com/rastafary74/frontend-project-lvl1/workflows/eslint/badge.svg)](https://github.com/rastafary74/frontend-project-lvl1/actions)
+
+# Mind games
+
+A set of 5 console mini games.
+
+### Copying a project
 ```sh
 git clone https://github.com/rastafary74/frontend-project-lvl1.git
 ```
 
-### Установка
+### Installation
 ```sh
 npm ci
 ```
 
-### Запуск
+### Launch
 ```sh
-// Игра - найди результат выражения
-brain-calc
+// Game - find the result of the expression
+node bin/brain-calc.js
 
-// Игра - является ли число четныи или ненечетным?
-brain-even
+// Game - Is the number even or odd?
+node bin/brain-even.js
 
-// Игра - найди наибольший общий делитель двух чисел
-brain-gcd
+// Game - find the greatest common divisor of two numbers
+node bin/brain-gcd.js
 
-// Игра - является ли число простым?
-brain-prime
+// Game - Is the number prime?
+node bin/brain-prime.js
 
-// Игра - найди пропущенное число в прогрессии
-brain-progression
+// Game - find the missing number in the progression
+node bin/brain-progression.js
 ```
 
 
@@ -47,9 +54,3 @@ brain-progression
 ## preview brain-progression game
 [![asciicast](https://asciinema.org/a/W4CUnMvIkL83TsxAL1DULpg2m.svg)](https://asciinema.org/a/W4CUnMvIkL83TsxAL1DULpg2m)
 
-### Hexlet tests and linter status:
-[![Actions Status](https://github.com/rastafary74/frontend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/rastafary74/frontend-project-lvl1/actions)
-
-[![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
-
-[![Eslint](https://github.com/rastafary74/frontend-project-lvl1/workflows/eslint/badge.svg)](https://github.com/rastafary74/frontend-project-lvl1/actions)

@@ -1,7 +1,7 @@
 import getRandomInRange from '../src/games-lib.js';
 import engine from '../src/index.js';
 
-const getQuestion = () => {
+const generateRound = () => {
   const firstNum = getRandomInRange(1, 10);
   const secondNum = getRandomInRange(1, 10);
   const numberOperation = getRandomInRange(1, 3);
@@ -26,7 +26,7 @@ const getQuestion = () => {
 
 const brainCalcGame = (userName) => {
   const startMessage = 'What is the result of the expression?';
-  return engine(startMessage, userName, getQuestion);
+  return engine(startMessage, userName, generateRound);
 };
 
 export default brainCalcGame;

@@ -13,7 +13,7 @@ const isPrimeNumber = (number) => {
   return true;
 };
 
-const getQuestion = () => {
+const generateRound = () => {
   const question = getRandomInRange(2, 60);
   const correctAnswer = isPrimeNumber(question) ? 'yes' : 'no';
   return [question, correctAnswer];
@@ -21,7 +21,7 @@ const getQuestion = () => {
 
 const brainPrimeGame = (userName) => {
   const startMessage = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  return engine(startMessage, userName, getQuestion);
+  return engine(startMessage, userName, generateRound);
 };
 
 export default brainPrimeGame;
