@@ -1,5 +1,7 @@
-import getRandomInRange from '../src/games-lib.js';
-import engine from '../src/index.js';
+import getRandomInRange from '../utils.js';
+import engine from '../index.js';
+
+const startMessage = 'Find the greatest common divisor of given numbers.';
 
 const generateRound = () => {
   const firstNum = getRandomInRange(1, 50);
@@ -16,9 +18,6 @@ const generateRound = () => {
   return [question, String(correctAnswer)];
 };
 
-const brainGCDGame = (userName) => {
-  const startMessage = 'Find the greatest common divisor of given numbers.';
-  return engine(startMessage, userName, generateRound);
-};
+const brainGCDGame = () => engine(startMessage, generateRound);
 
 export default brainGCDGame;

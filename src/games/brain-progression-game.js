@@ -1,5 +1,7 @@
-import getRandomInRange from '../src/games-lib.js';
-import engine from '../src/index.js';
+import getRandomInRange from '../utils.js';
+import engine from '../index.js';
+
+const startMessage = 'What number is missing in the progression?';
 
 const generateRound = () => {
   const progressionLength = getRandomInRange(5, 10);
@@ -17,9 +19,6 @@ const generateRound = () => {
   return [question, String(correctAnswer)];
 };
 
-const brainProgressionGame = (userName) => {
-  const startMessage = 'What number is missing in the progression?';
-  return engine(startMessage, userName, generateRound);
-};
+const brainProgressionGame = () => engine(startMessage, generateRound);
 
 export default brainProgressionGame;

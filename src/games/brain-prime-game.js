@@ -1,5 +1,7 @@
-import getRandomInRange from '../src/games-lib.js';
-import engine from '../src/index.js';
+import getRandomInRange from '../utils.js';
+import engine from '../index.js';
+
+const startMessage = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrimeNumber = (number) => {
   if (number < 2) {
@@ -19,9 +21,6 @@ const generateRound = () => {
   return [question, correctAnswer];
 };
 
-const brainPrimeGame = (userName) => {
-  const startMessage = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  return engine(startMessage, userName, generateRound);
-};
+const brainPrimeGame = () => engine(startMessage, generateRound);
 
 export default brainPrimeGame;
