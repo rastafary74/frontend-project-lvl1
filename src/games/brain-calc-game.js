@@ -2,35 +2,28 @@ import getRandomInRange from '../utils.js';
 import engine from '../index.js';
 
 const startMessage = 'What is the result of the expression?';
+const operatorList = ['+', '-', '*'];
 
 const calculateOperation = (operator, firstNum, secondNum) => {
-  let question = '';
-  let correctAnswer;
   switch (operator) {
     case '+':
-      correctAnswer = firstNum + secondNum;
-      question = `${firstNum} + ${secondNum}`;
-      break;
+      return firstNum + secondNum;
     case '*':
-      correctAnswer = firstNum * secondNum;
-      question = `${firstNum} * ${secondNum}`;
-      break;
+      return firstNum * secondNum;
     case '-':
-      correctAnswer = firstNum - secondNum;
-      question = `${firstNum} - ${secondNum}`;
-      break;
+      return firstNum - secondNum;
     default:
+      throw new Error('Unsupported operator');
   }
-  return [question, correctAnswer];
 };
 
 const generateRound = () => {
   const num1 = getRandomInRange(1, 10);
   const num2 = getRandomInRange(1, 10);
-  const numberOperation = getRandomInRange(0, 2);
-  const operatorArr = ['+', '-', '*'];
-  const [question, correctAnswer] = calculateOperation(operatorArr[numberOperation], num1, num2);
-  return [question, String(correctAnswer)];
+  const numberOperation = getRandomInRange(0, operatorList.length - 1);
+  const question = `${num1} ${operatorList[numberOperation]} ${num2}`;
+  const correctAnswer = String(calculateOperation(operatorList[numberOperation], num1, num2));
+  return [question, correctAnswer];
 };
 
 const brainCalcGame = () => engine(startMessage, generateRound);

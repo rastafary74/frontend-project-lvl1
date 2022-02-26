@@ -14,7 +14,7 @@ const engine = (startMessage, generateRound) => {
     if (correctAnswer !== answer) {
       console.log(`${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'`);
       console.log(`Let's try again, ${userName}!`);
-      break;
+      return;
     }
     console.log('Correct!');
   }
