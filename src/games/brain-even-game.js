@@ -2,6 +2,7 @@ import getRandomInRange from '../utils.js';
 import engine from '../index.js';
 
 const startMessage = 'Answer "yes" if the number is even, otherwise answer "no".';
+
 const isEven = (num) => num % 2 === 0;
 
 const generateRound = () => {
@@ -10,6 +11,4 @@ const generateRound = () => {
   return [question, correctAnswer];
 };
 
-const brainEvenGame = () => engine(startMessage, generateRound);
-
-export default brainEvenGame;
+export default () => engine(startMessage, generateRound);

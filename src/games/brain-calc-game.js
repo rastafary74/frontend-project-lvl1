@@ -26,6 +26,4 @@ const generateRound = () => {
   return [question, correctAnswer];
 };
 
-const brainCalcGame = () => engine(startMessage, generateRound);
-
-export default brainCalcGame;
+export default () => engine(startMessage, generateRound);

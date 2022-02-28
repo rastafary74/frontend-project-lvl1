@@ -21,6 +21,4 @@ const generateRound = () => {
   return [question, correctAnswer];
 };
 
-const brainPrimeGame = () => engine(startMessage, generateRound);
-
-export default brainPrimeGame;
+export default () => engine(startMessage, generateRound);
